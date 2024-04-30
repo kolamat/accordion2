@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import "./App.css";
-import Accordion from "./components/Accordion";
+import Accordion from "Accordion";
 
 function App() {
   //   const [count, setCount] = useState(0);

@@ -82,12 +82,22 @@ const Accordion = () => {
           {Data.map((item, index) => {
             return (
               <>
-                <Wrap onClick={() => toggle(index)} key={index}>
+                <div
+                  className={`bg-red-800`}
+                  onClick={() => toggle(index)}
+                  key={index}
+                >
                   <h1>{item.title}</h1>
-                  <span>{clicked === index ? <FaMinus /> : <FaPlus />}</span>
-                </Wrap>
+                  <span>
+                    {clicked === index ? (
+                      <FaMinus className={`hover:rotate-180`} />
+                    ) : (
+                      <FaPlus className={`hover:rotate-180`} />
+                    )}
+                  </span>
+                </div>
                 {clicked === index ? (
-                  <Dropdown>
+                  <Dropdown className={`transition-all duration-300`}>
                     <p>
                       {item.answer1}
                       <input type="checkbox" />
