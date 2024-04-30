@@ -2,6 +2,7 @@ import { Data } from "./Data";
 import styled from "styled-components";
 import { IconContext } from "react-icons";
 import { FiPlus, FiMinus } from "react-icons/fi";
+import { useState } from "react";
 
 const AccordionSection = styled.div`
   display: flex;
@@ -35,15 +36,28 @@ const Wrap = styled.div`
 `;
 
 const Accordion = () => {
+  const [clicked, setClicked] = useState(false);
+
+  const toggle = (index) => {
+    if (clicked === index) {
+      // if clicked question is already active, then close it
+      return setClicked(null);
+    }
+
+    // then if it not you just set the clicked to the essential value and end up opening it
+    setClicked(index);
+  };
+
   return (
     <IconContext.Provider value={{ color: "#00FF89", size: "25px" }}>
       <AccordionSection>
         <Container>
-          {Data.map((item) => {
+          {Data.map((item, index) => {
             return (
               <>
-                <Wrap>
+                <Wrap onClick={() => toggle(index)} key={index}>
                   <h1>{item.title}</h1>
+                  <span>{clicked === index ? <FiMinus /> : <FiPlus />}</span>
                 </Wrap>
                 <p>
                   {item.answer1}
