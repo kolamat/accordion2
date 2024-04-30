@@ -19,7 +19,7 @@ const Container = styled.div`
   top: 30%;
   box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);
 `;
-const Wrap = styled.h1`
+const Wrap = styled.div`
   background: #272727;
   color: #fff;
   display: flex;
@@ -28,7 +28,8 @@ const Wrap = styled.h1`
   width: 100%;
   text-align: center;
   cursor: pointer;
-  margin: 0;
+  transition: all;
+  transition-duration: 5ms;
 
   h1 {
     padding: 2rem;
