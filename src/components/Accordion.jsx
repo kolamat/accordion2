@@ -1,7 +1,7 @@
 import { Data } from "./Data";
 import styled from "styled-components";
 import { IconContext } from "react-icons";
-import { FiPlus, FiMinus } from "react-icons/fi";
+import { FaMinus, FaPlus } from "react-icons/fa";
 import { useState } from "react";
 
 const AccordionSection = styled.div`
@@ -35,13 +35,30 @@ const Wrap = styled.div`
   }
 `;
 
+const Dropdown = styled.div`
+  background: #1c1c1c;
+  color: #00ffb9;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: colunm;
+  justify-content: center;
+  align-items: center;
+  border-botttom: 1px solid #00ffb9;
+
+  p {
+    font-size: 2rem;
+  }
+`;
+
 const Accordion = () => {
   const [clicked, setClicked] = useState(false);
 
   const toggle = (index) => {
     if (clicked === index) {
-      // if clicked question is already active, then close it
+      // if is clicked is equall to the index then i want to (return) setClicked as null
       return setClicked(null);
+      // if clicked question is already active, then close it
     }
 
     // then if it not you just set the clicked to the essential value and end up opening it
@@ -52,21 +69,25 @@ const Accordion = () => {
     <IconContext.Provider value={{ color: "#00FF89", size: "25px" }}>
       <AccordionSection>
         <Container>
-          {Data.map((item, index) => {
+          {Data.map((item, index, keys) => {
             return (
               <>
                 <Wrap onClick={() => toggle(index)} key={index}>
                   <h1>{item.title}</h1>
-                  <span>{clicked === index ? <FiMinus /> : <FiPlus />}</span>
+                  <span>{clicked === index ? <FaMinus /> : <FaPlus />}</span>
                 </Wrap>
-                <p>
-                  {item.answer1}
-                  <input type="checkbox" />
-                </p>
-                <p>
-                  {item.answer2}
-                  <input type="checkbox" />
-                </p>
+                {clicked === index ? (
+                  <Dropdown>
+                    <p>
+                      {item.answer1}
+                      <input type="checkbox" />
+                    </p>
+                    <p>
+                      {item.answer2}
+                      <input type="checkbox" />
+                    </p>
+                  </Dropdown>
+                ) : null}
               </>
             );
           })}
