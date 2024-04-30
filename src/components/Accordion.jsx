@@ -18,6 +18,8 @@ const Container = styled.div`
   postion: absolute;
   top: 30%;
   box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);
+  transition: all;
+  transition-duration: 3ms;
 `;
 const Wrap = styled.div`
   background: #272727;
@@ -29,11 +31,13 @@ const Wrap = styled.div`
   text-align: center;
   cursor: pointer;
   transition: all;
-  transition-duration: 5ms;
+  transition-duration: 3ms;
 
   h1 {
     padding: 2rem;
     font-size: 2rem;
+    transition: all;
+    transition-duration: 3ms;
   }
 `;
 
@@ -47,9 +51,13 @@ const Dropdown = styled.div`
   justify-content: center;
   align-items: center;
   border-botttom: 1px solid #00ffb9;
+  transition: all;
+  transition-duration: 3ms;
 
   p {
     font-size: 2rem;
+    transition: all;
+    transition-duration: 3ms;
   }
 `;
 
@@ -71,7 +79,7 @@ const Accordion = () => {
     <IconContext.Provider value={{ color: "#00FF89", size: "25px" }}>
       <AccordionSection>
         <Container>
-          {Data.map((item, index, keys) => {
+          {Data.map((item, index) => {
             return (
               <>
                 <Wrap onClick={() => toggle(index)} key={index}>
