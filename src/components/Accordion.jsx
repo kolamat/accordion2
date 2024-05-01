@@ -40,7 +40,7 @@ const Accordion = () => {
                 </span>
               </button>
               {clicked === index ? (
-                <div className={`bg-blue-950 text-slate-400`}>
+                <div className={`bg-blue-950 text-white`}>
                   <p
                     key={item.id}
                     className={`flex justify-between p-3 pb-0 font-semibold text-xl transition-all duration-500`}
