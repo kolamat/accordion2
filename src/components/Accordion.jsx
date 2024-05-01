@@ -17,50 +17,40 @@ const Accordion = () => {
   };
 
   return (
-    <>
-      <div
-        className={`bg-white flex flex-col items-center justify-center relative h-screen`}
-      >
-        <div className={`absolute top-[30%]`}>
-          {Data.map((item, index) => {
-            return (
-              <>
-                <button
-                  className={`flex justify-between items-center w-full text-center bg-stone-800 text-white`}
-                  onClick={() => toggle(index)}
-                  key={index}
-                >
-                  <h1
-                    className={`p-8 pl-4 transition-all duration-300 font-bold`}
-                  >
-                    {item.title}
-                  </h1>
-                  <span
-                    className={`hover:rotate-180 transition-all duration-300`}
-                  >
-                    {clicked === index ? <FaMinus /> : <FaPlus />}
-                  </span>
-                </button>
-                {clicked === index ? (
-                  <div
-                    className={`flex flex-col justify-center items-center border border-solid border-slate-400 bg-stone-800 text-slate-400 w-full h-24`}
-                  >
-                    <p className={`font-semibold text-xl`}>
-                      {item.answer1}
-                      <input type="checkbox" />
-                    </p>
-                    <p className={`font-semibold text-xl`}>
-                      {item.answer2}
-                      <input type="checkbox" />
-                    </p>
-                  </div>
-                ) : null}
-              </>
-            );
-          })}
-        </div>
-      </div>
-    </>
+    <div className={`pt-4`}>
+      {Data.map((item, index) => {
+        return (
+          <>
+            <button
+              className={`flex justify-between items-center w-full text-center bg-stone-800 text-white pr-3`}
+              onClick={() => toggle(index)}
+              key={index}
+            >
+              <h1 className={`p-8 pl-4 transition-all duration-300 font-bold`}>
+                {item.title}
+              </h1>
+              <span className={`hover:rotate-180 transition-all duration-300`}>
+                {clicked === index ? <FaMinus /> : <FaPlus />}
+              </span>
+            </button>
+            {clicked === index ? (
+              <div
+                className={`flex flex-col justify-center items-center border border-solid border-slate-400 bg-stone-800 text-slate-400 w-full h-24`}
+              >
+                <p className={`font-semibold text-xl`}>
+                  {item.answer1}
+                  <input type="checkbox" />
+                </p>
+                <p className={`font-semibold text-xl`}>
+                  {item.answer2}
+                  <input type="checkbox" />
+                </p>
+              </div>
+            ) : null}
+          </>
+        );
+      })}
+    </div>
   );
 };
 
