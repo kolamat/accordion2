@@ -1,59 +1,6 @@
 import { Data } from "./Data";
-import styled from "styled-components";
-import { IconContext } from "react-icons";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useState } from "react";
-
-const AccordionSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  height: 100vh;
-  background: #fff;
-`;
-
-const Container = styled.div`
-  postion: absolute;
-  top: 30%;
-  box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);
-`;
-const Wrap = styled.div`
-  background: #272727;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  text-align: center;
-  cursor: pointer;
-
-  h1 {
-    padding: 2rem;
-    font-size: 2rem;
-    transition: all;
-    transition-duration: 3ms;
-  }
-`;
-
-const Dropdown = styled.div`
-  background: #1c1c1c;
-  color: #00ffb9;
-  width: 100%;
-  height: 100px;
-  display: flex;
-  flex-direction: colunm;
-  justify-content: center;
-  align-items: center;
-  border-botttom: 1px solid #00ffb9;
-
-  p {
-    font-size: 2rem;
-    transition: all;
-    transition-duration: 3ms;
-  }
-`;
 
 const Accordion = () => {
   const [clicked, setClicked] = useState(false);
@@ -70,34 +17,50 @@ const Accordion = () => {
   };
 
   return (
-    <IconContext.Provider value={{ color: "#00FF89", size: "25px" }}>
-      <AccordionSection>
-        <Container>
+    <>
+      <div
+        className={`bg-white flex flex-col items-center justify-center relative h-screen`}
+      >
+        <div className={`absolute top-[30%]`}>
           {Data.map((item, index) => {
             return (
               <>
-                <Wrap onClick={() => toggle(index)} key={index}>
-                  <h1>{item.title}</h1>
-                  <span>{clicked === index ? <FaMinus /> : <FaPlus />}</span>
-                </Wrap>
+                <button
+                  className={`flex justify-between items-center w-full text-center bg-stone-800 text-white`}
+                  onClick={() => toggle(index)}
+                  key={index}
+                >
+                  <h1
+                    className={`p-8 pl-4 transition-all duration-300 font-bold`}
+                  >
+                    {item.title}
+                  </h1>
+                  <span
+                    className={`hover:rotate-180 transition-all duration-300`}
+                  >
+                    {clicked === index ? <FaMinus /> : <FaPlus />}
+                  </span>
+                </button>
                 {clicked === index ? (
-                  <Dropdown>
-                    <p>
+                  <div
+                    className={`flex flex-col justify-center items-center border border-solid border-slate-400 bg-stone-800 text-slate-400 w-full h-24`}
+                  >
+                    <p className={`font-semibold text-xl`}>
                       {item.answer1}
                       <input type="checkbox" />
                     </p>
-                    <p>
+                    <p className={`font-semibold text-xl`}>
                       {item.answer2}
                       <input type="checkbox" />
                     </p>
-                  </Dropdown>
+                  </div>
                 ) : null}
               </>
             );
           })}
-        </Container>
-      </AccordionSection>
-    </IconContext.Provider>
+        </div>
+      </div>
+    </>
   );
 };
 
