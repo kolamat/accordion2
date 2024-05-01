@@ -26,22 +26,29 @@ const Accordion = () => {
               onClick={() => toggle(index)}
               key={index}
             >
-              <h1 className={`p-8 pl-4 transition-all duration-300 font-bold`}>
+              <h1
+                key={item.id}
+                className={`p-8 pl-4 transition-all duration-300 font-bold`}
+              >
                 {item.title}
               </h1>
-              <span className={`hover:rotate-180 transition-all duration-300`}>
+              <span className={`rotate-180 transition-all duration-300`}>
                 {clicked === index ? <FaMinus /> : <FaPlus />}
               </span>
             </button>
             {clicked === index ? (
-              <div
-                className={`border-solid border-slate-400 bg-stone-800 text-slate-400 w-full h-24`}
-              >
-                <p className={`font-semibold text-xl`}>
+              <div className={`border-slate-400 bg-stone-800 text-slate-400`}>
+                <p
+                  key={item.id}
+                  className={`flex justify-between p-3 pb-0 font-semibold text-xl`}
+                >
                   {item.answer1}
                   <input type="checkbox" />
                 </p>
-                <p className={`font-semibold text-xl`}>
+                <p
+                  key={item.id}
+                  className={`flex justify-between p-3 pt-0 font-semibold text-xl`}
+                >
                   {item.answer2}
                   <input type="checkbox" />
                 </p>
