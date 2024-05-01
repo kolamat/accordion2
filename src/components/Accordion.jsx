@@ -35,7 +35,7 @@ const Accordion = () => {
             </button>
             {clicked === index ? (
               <div
-                className={` border border-solid border-slate-400 bg-stone-800 text-slate-400 w-full h-24`}
+                className={`border-solid border-slate-400 bg-stone-800 text-slate-400 w-full h-24`}
               >
                 <p className={`font-semibold text-xl`}>
                   {item.answer1}
