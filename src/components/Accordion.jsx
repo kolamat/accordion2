@@ -40,14 +40,14 @@ const Accordion = () => {
               <div className={`border-slate-400 bg-stone-800 text-slate-400`}>
                 <p
                   key={item.id}
-                  className={`flex justify-between p-3 pb-0 font-semibold text-xl`}
+                  className={`flex justify-between p-3 pb-0 font-semibold text-xl transition-all duration-500`}
                 >
                   {item.answer1}
                   <input type="checkbox" />
                 </p>
                 <p
                   key={item.id}
-                  className={`flex justify-between p-3 pt-0 font-semibold text-xl`}
+                  className={`flex justify-between p-3 pt-0 font-semibold text-xl transition-all duration-500`}
                 >
                   {item.answer2}
                   <input type="checkbox" />
