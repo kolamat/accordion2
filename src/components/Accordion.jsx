@@ -23,7 +23,7 @@ const Accordion = () => {
       >
         {Data.map((item, index) => {
           return (
-            <>
+            <div key={item.id}>
               <button
                 className={`flex justify-between items-center w-full text-center bg-stone-800 text-white pr-3`}
                 onClick={() => toggle(index)}
@@ -57,7 +57,7 @@ const Accordion = () => {
                   </p>
                 </div>
               ) : null}
-            </>
+            </div>
           );
         })}
       </div>
