@@ -30,7 +30,6 @@ const Accordion = () => {
                 key={index}
               >
                 <h1
-                  key={item.id}
                   className={`p-8 pl-4 transition-all duration-300 font-bold`}
                 >
                   {item.title}
@@ -42,14 +41,12 @@ const Accordion = () => {
               {clicked === index ? (
                 <div className={`bg-blue-950 text-white`}>
                   <p
-                    key={item.id}
                     className={`flex justify-between p-3 pb-0 font-semibold text-xl transition-all duration-500`}
                   >
                     {item.answer1}
                     <input type="checkbox" />
                   </p>
                   <p
-                    key={item.id}
                     className={`flex justify-between p-3 pt-0 font-semibold text-xl transition-all duration-500`}
                   >
                     {item.answer2}
