@@ -17,11 +17,9 @@ const Accordion = () => {
   };
 
   return (
-    <div
-      className={`h-screen pt-20 px-32 shadow-xl shadow-blue-900 border-x-gray-900 bg-white`}
-    >
+    <div className={`h-screen pt-20 px-52 bg-white`}>
       <div
-        className={`border-t-[15px] border-b-[15px] border-gray-500 rounded-3xl`}
+        className={`border-t-[15px] border-b-[15px] border-gray-500 rounded-3xl shadow-2xl shadow-gray-950`}
       >
         {Data.map((item, index) => {
           return (
