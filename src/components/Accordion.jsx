@@ -17,7 +17,7 @@ const Accordion = () => {
   };
 
   return (
-    <div className={`h-screen pt-20 px-16 bg-white`}>
+    <div className={`h-screen pt-20 px-32 shadow-xl shadow-gray-950 bg-white`}>
       <div
         className={`border-t-[15px] border-b-[15px] border-gray-500 rounded-3xl`}
       >
@@ -25,7 +25,7 @@ const Accordion = () => {
           return (
             <div key={item.id}>
               <button
-                className={`flex justify-between items-center w-full text-center bg-white text-black pr-3`}
+                className={`flex justify-between items-center w-full text-center bg-white text-black pr-3 p-8`}
                 onClick={() => toggle(index)}
                 key={index}
               >
@@ -40,20 +40,17 @@ const Accordion = () => {
               </button>
               {clicked === index ? (
                 <div className={`bg-gray-500 text-white`}>
-                  <div>
-                    <p
-                      className={`flex justify-between p-3 pb-0 font-semibold text-xl transition-all duration-500`}
-                    >
-                      {item.answer1}
-                    </p>
+                  <div
+                    className={`flex gap-2 p-4 pb-0 items-center  font-semibold text-xl`}
+                  >
+                    <p className={``}>{item.answer1}</p>
                     <input type="checkbox" />
                   </div>
-                  <div>
-                    <p
-                      className={`flex justify-between p-3 pt-0 font-semibold text-xl transition-all duration-500`}
-                    >
-                      {item.answer2}
-                    </p>
+                  <div className={`bg-white w-64 h-[2px]`} />
+                  <div
+                    className={`flex gap-2 p-4 pt-0 items-center font-semibold text-xl`}
+                  >
+                    <p className={``}>{item.answer2}</p>
                     <input type="checkbox" />
                   </div>
                 </div>
