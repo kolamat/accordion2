@@ -17,15 +17,15 @@ const Accordion = () => {
   };
 
   return (
-    <div className={`h-screen pt-8 bg-stone-800`}>
+    <div className={`h-screen pt-20 px-16 bg-white`}>
       <div
-        className={`border-t-[15px] border-b-[15px] border-blue-950 rounded-3xl`}
+        className={`border-t-[15px] border-b-[15px] border-gray-500 rounded-3xl`}
       >
         {Data.map((item, index) => {
           return (
             <div key={item.id}>
               <button
-                className={`flex justify-between items-center w-full text-center bg-stone-800 text-white pr-3`}
+                className={`flex justify-between items-center w-full text-center bg-white text-black pr-3`}
                 onClick={() => toggle(index)}
                 key={index}
               >
@@ -39,19 +39,23 @@ const Accordion = () => {
                 </span>
               </button>
               {clicked === index ? (
-                <div className={`bg-blue-950 text-white`}>
-                  <p
-                    className={`flex justify-between p-3 pb-0 font-semibold text-xl transition-all duration-500`}
-                  >
-                    {item.answer1}
+                <div className={`bg-gray-500 text-white`}>
+                  <div>
+                    <p
+                      className={`flex justify-between p-3 pb-0 font-semibold text-xl transition-all duration-500`}
+                    >
+                      {item.answer1}
+                    </p>
                     <input type="checkbox" />
-                  </p>
-                  <p
-                    className={`flex justify-between p-3 pt-0 font-semibold text-xl transition-all duration-500`}
-                  >
-                    {item.answer2}
+                  </div>
+                  <div>
+                    <p
+                      className={`flex justify-between p-3 pt-0 font-semibold text-xl transition-all duration-500`}
+                    >
+                      {item.answer2}
+                    </p>
                     <input type="checkbox" />
-                  </p>
+                  </div>
                 </div>
               ) : null}
             </div>
