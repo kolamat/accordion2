@@ -43,14 +43,14 @@ const Accordion = () => {
                   <div
                     className={`flex gap-2 p-4 pb-0 items-center  font-semibold text-xl`}
                   >
-                    <p className={``}>{item.answer1}</p>
+                    <p>{item.answer1}</p>
                     <input type="checkbox" />
                   </div>
                   <div className={`bg-white w-64 h-[2px]`} />
                   <div
                     className={`flex gap-2 p-4 pt-0 items-center font-semibold text-xl`}
                   >
-                    <p className={``}>{item.answer2}</p>
+                    <p>{item.answer2}</p>
                     <input type="checkbox" />
                   </div>
                 </div>
